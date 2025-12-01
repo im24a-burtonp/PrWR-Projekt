@@ -1,35 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..1000&display=swap');
 
-:root {
-    --color-primary: #4A90E2;
-    --color-secondary: #50E3C2;
-    --color-background: #F5F7FA;
-    --color-text: #4A4A4A;
-    --font-family-base: 'Roboto Flex', sans-serif;
-}
 html {
-    font-family: var(--font-family-base);
-    background-color: var(--color-background);
-    color: var(--color-text);
+    font-family: 'Roboto Flex', sans-serif;
+    background-color: #F5F7FA;
+    color: #4A4A4A;
     margin: 0;
     padding: 0;
 }
+
 nav {
     position: relative;
-    background-color: var(--color-primary);
+    background-color: #4A90E2;
     padding: 10px 16px;
     height: 60px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
-.menu-button {
+
+.menu-button, .mode-toggle-button {
     cursor: pointer;
     display: flex;
     align-items: center;
 }
+
 .close-icon {
     display: none;
 }
+
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -40,21 +38,56 @@ nav {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     border-radius: 6px;
 }
+
 .dropdown-menu a {
     display: block;
     padding: 14px 18px;
-    color: var(--color-text);
+    color: #4A4A4A;
     text-decoration: none;
 }
+
 .dropdown-menu a:hover {
-    background-color: var(--color-background);
+    background-color: #F5F7FA;
 }
+
 #menu-toggle:checked ~ .dropdown-menu {
     display: block;
 }
+
 #menu-toggle:checked ~ .open-icon {
     display: none;
 }
+
 #menu-toggle:checked ~ .close-icon {
     display: flex;
+}
+
+body.dark-mode nav {
+    background-color: #4A90E2;
+}
+
+html.dark-mode {
+    background-color: #2b2b2b;
+    color: #e3e3e3;
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: #3a3a3a;
+}
+
+body.dark-mode .dropdown-menu a {
+    color: #e3e3e3;
+}
+
+body.dark-mode .dropdown-menu a:hover {
+    background-color: #4a4a4a;
+}
+
+body.dark-mode .dropdown-menu a {
+    color: #e3e3e3;
+}
+
+#mode-toggle {
+    margin-left: auto;
+    margin-right: 16px;
 }
