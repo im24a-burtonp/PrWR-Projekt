@@ -28,3 +28,94 @@ function change() {
     document.documentElement.classList.toggle("dark-mode");
     updateModeIcon();
 }
+
+let quizData = [];
+let currentQuestionIndex = 0;
+
+const coinImage = document.querySelector('.quiz img');
+const trueButton = document.getElementById('quiz-true');
+const falseButton = document.getElementById('quiz-false');
+const feedbackContainer = document.createElement('p');
+feedbackContainer.id = 'feedback-text';
+document.querySelector('.quiz').appendChild(feedbackContainer);
+
+function loadQuizData() {
+    fetch('quizdaten.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            quizData = data;
+            if (quizData.length > 0) {
+                displayQuestion(currentQuestionIndex);
+            } else {
+                feedbackContainer.textContent = "Fehler: Quizdaten sind leer.";
+            }
+        })
+        .catch(error => {
+            console.error('Fehler beim Laden der Quizdaten:', error);
+            feedbackContainer.textContent = "Konnte Quizdaten nicht laden.";
+        });
+}
+
+function displayQuestion(index) {
+    const question = quizData[index];
+
+    coinImage.src = question.bild;
+    coinImage.alt = `${question.muenze} - Echtheitsprüfung`;
+
+    feedbackContainer.textContent = "";
+    feedbackContainer.classList.remove('correct', 'wrong');
+    trueButton.disabled = false;
+    falseButton.disabled = false;
+    trueButton.style.display = 'block';
+    falseButton.style.display = 'block';
+}
+
+function checkAnswer(userGuess) {
+    const currentQuestion = quizData[currentQuestionIndex];
+    const isCorrect = userGuess === currentQuestion['ist-echt'];
+
+    trueButton.disabled = true;
+    falseButton.disabled = true;
+
+    if (isCorrect) {
+        feedbackContainer.innerHTML = ' Richtig! ';
+        feedbackContainer.classList.add('correct');
+        feedbackContainer.classList.remove('wrong');
+    } else {
+        feedbackContainer.innerHTML = ' Falsch! ';
+        feedbackContainer.classList.add('wrong');
+        feedbackContainer.classList.remove('correct');
+    }
+
+    feedbackContainer.innerHTML += `<br>Erklärung: ${currentQuestion.erklaerung}`;
+
+    setTimeout(nextQuestion, 4000);
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizData.length) {
+        displayQuestion(currentQuestionIndex);
+    } else {
+        coinImage.src = 'https://placehold.co/320x280?text=QUIZ+BEENDET';
+        feedbackContainer.innerHTML = 'Herzlichen Glückwunsch! Quiz beendet. Laden Sie die Seite neu, um von vorne zu beginnen.';
+        trueButton.style.display = 'none';
+        falseButton.style.display = 'none';
+    }
+}
+
+function setupEventListeners() {
+    trueButton.addEventListener('click', () => checkAnswer(true));
+    falseButton.addEventListener('click', () => checkAnswer(false));
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadQuizData();
+    setupEventListeners();
+});

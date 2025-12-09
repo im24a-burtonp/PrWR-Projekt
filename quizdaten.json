@@ -1,0 +1,71 @@
+[
+  {
+    "id" : 1,
+    "bild" : "quiz-muenzen/1-dollar-australien.jpg",
+    "ist-echt" : true,
+    "erklaerung" : "Dies ist eine echte 1-Dollar-Münze aus Australien. Das Tier sollte ein Känguru sein. Meiner Meinung nach sieht es wie ein Alpaka aus."
+  },
+
+  {
+    "id" : 2,
+    "bild" : "quiz-muenzen/1-ewro.jpg",
+    "ist-echt" : false,
+    "erklaerung" : "Dies ist eine gefälschte 1-Euro-Münze. Man merkt es direkt anhand von visueller Mängel der Münze."
+  },
+
+  {
+    "id" : 3,
+    "bild" : "quiz-muenzen/2-euro-estland.jpg",
+    "ist-echt" : false,
+    "erklaerung" : "Dies ist eine gefälschte 2-Euro-Münze aus Estland. Aufgrund der filigranten Schrift und dem Umriss kann man es erkennen."
+  },
+
+  {
+    "id" : 4,
+    "bild" : "quiz-muenzen/5-liber.jpg",
+    "ist-echt" : true,
+    "erklaerung" : "Dies ist eine normale 5-Franken-Münze, auch 5-Liber genannt."
+  },
+
+  {
+    "id" : 5,
+    "bild" : "quiz-muenzen/5-liber-fake.jpg",
+    "ist-echt" : false,
+    "erklaerung" : "Dies ist eine gefälschte Version einer 5-Franken-Münze. Anhand der klaren visuellen Mängel ist es nicht zu übersehen, dass es gefälscht ist."
+  },
+
+  {
+    "id" : 6,
+    "bild" : "quiz-muenzen/koala-muenze-fake.jpg",
+    "ist-echt" : false,
+    "erklaerung" : "Man merkt es kaum, aber trotzdem ist diese australische Münze ein Fake. Hier ist die fettige Schrift und Färbung der Nase ein Hinweis."
+  },
+
+  {
+    "id" : 7,
+    "bild" : "quiz-muenzen/koala-muenze-real.jpg",
+    "ist-echt" : true,
+    "erklaerung" : "Dies ist eine echte Version einer australischen Münze. Aufgrund der relativ dünnen Schrift kann man denken, dass es gefälscht sei."
+  },
+
+  {
+    "id" : 8,
+    "bild" : "quiz-muenzen/pirat-spielzeug.jpg",
+    "ist-echt" : false,
+    "erklaerung" : "Das sind simple Piratenmünzen, die man in Spielsets findet."
+  },
+
+  {
+    "id" : 9,
+    "bild" : "quiz-muenzen/roemische-muenze.jpg",
+    "ist-echt" : true,
+    "erklaerung" : "Dies ist eine alte römische Münze, die tatsächlich echt ist."
+  },
+
+  {
+    "id" : 10,
+    "bild" : "quiz-muenzen/schokomuenzen.jpg",
+    "ist-echt" : false,
+    "erklaerung" : "Ein Beutel voll mit Schokomünzen, die wie schweizer Münzen aussehen. Sehr lecker!"
+  }
+]

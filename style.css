@@ -15,7 +15,9 @@ html {
 
 nav {
     margin-top: 0;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     background-color: #f4eddd;
     padding: 10px 16px;
     height: 60px;
@@ -70,7 +72,7 @@ nav {
 }
 
 body.dark-mode nav {
-    background-color: #4A90E2;
+    background-color: #4c4c4c;
 }
 
 html.dark-mode {
@@ -100,7 +102,7 @@ body.dark-mode .dropdown-menu a {
 }
 
 #main-title {
-    padding-top: 50px; 
+    padding-top: 50px;  
 }
 
 #main-title h1, img {
@@ -112,8 +114,158 @@ body.dark-mode .dropdown-menu a {
     word-break: break-word;     /* ensures words wrap if needed */
 }
 
-#main-title img {
-    padding-top: 20px;
-    display: block;
+h2 {
+    font-size: clamp(20px, 6vw, 60px);
+    padding-left: 0;
+    line-height: 1.2;
+    max-width: 90%;
+    text-align: left;
+    max-width: 90%;
+    margin: 60px auto 20px 0;
+}
+
+#image-text {
+    max-width: 900px;
     margin: 0 auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+#image-text img {
+    float: right;
+    width: 500px;
+    margin: 0 0 16px 16px;
+    display: block;
+    border-radius: 15px;
+    border: #1c1e19 2px solid;
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+    #image-text img {
+        float: none;
+        width: 100%;
+        margin: 16px 0;
+    }
+}
+
+/* Clear float so container keeps height */
+#image-text::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 500px;
+    width: 90%;
+    margin: 30px auto;
+    border: 5px solid #eee2c7;
+}
+
+.quiz h2 {
+    justify-content: center;
+    text-align: center;
+}
+
+.quiz img {
+    width: 100%;
+}
+
+.wahl {
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+button {
+    cursor: pointer;
+}
+
+#quiz-true {
+    background-color: inherit;
+    border: 2px solid limegreen;
+    color: limegreen;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#quiz-false {
+    background-color: inherit;
+    border: 2px solid crimson;
+    color: crimson;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+#quiz-true:hover {
+    background-color: limegreen;
+    border: 2px solid limegreen;
+    color: white;
+    transition: 0.3s;
+}
+
+#quiz-false:hover {
+    background-color: crimson;
+    border: 2px solid crimson;
+    color: white;
+    transition: 0.3s;
+}
+
+footer {
+    background-color: #eee2c7;
+    padding: 20px;
+    font-size: 1rem;
+    color: black;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+.wahl button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.wahl button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#feedback-text {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1em;
+    line-height: 1.4;
+    text-align: center;
+    font-weight: 500;
+    min-height: 50px;
+}
+
+.correct {
+    background-color: #f4eddd;
+    border: 1px solid limegreen;
+    color: limegreen;
+}
+
+.wrong {
+    background-color: #f4eddd;
+    border: 1px solid crimson;
+    color: crimson;
 }
