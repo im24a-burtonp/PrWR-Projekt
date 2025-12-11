@@ -9,6 +9,11 @@ const darkMode = `
     </svg>`;
 
 document.addEventListener('DOMContentLoaded', (event) => {
+    const savedMode = localStorage.getItem("darkMode");
+    if (savedMode === "on") {
+        document.body.classList.add("dark-mode");
+        document.documentElement.classList.add("dark-mode");
+    }
     updateModeIcon();
 });
 
@@ -26,6 +31,8 @@ function updateModeIcon() {
 function change() {
     document.body.classList.toggle("dark-mode");
     document.documentElement.classList.toggle("dark-mode");
+    const darkModeIsOn = document.documentElement.classList.contains("dark-mode");
+    localStorage.setItem("darkMode", darkModeIsOn ? "on" : "off");
     updateModeIcon();
 }
 
