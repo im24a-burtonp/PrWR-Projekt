@@ -388,3 +388,47 @@ footer p {
     margin: 5px 0 10px 0;    /* Abstand zwischen den Quellen */
     font-size: 0.95em;
 }
+
+body.dark-mode footer {
+    background-color: #3a3a3a;
+    color: #e3e3e3;
+}
+
+body.dark-mode footer p,
+body.dark-mode footer h3 {
+    color: #e3e3e3;
+}
+
+body.dark-mode .valid {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: 2px solid #e3e3e3;
+}
+
+body.dark-mode .unavailable {
+    background-color: #555;
+    color: #aaa;
+    border-color: #777;
+}
+
+body.dark-mode .startbutton {
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border: 2px solid #e3e3e3;
+}
+
+body.dark-mode .startbuttoninvalid {
+    background-color: #444;
+    border-color: #666;
+    color: #999;
+}
+
+body.dark-mode #quiz-true:hover {
+    background-color: limegreen;
+    color: #fff;
+}
+
+body.dark-mode #quiz-false:hover {
+    background-color: crimson;
+    color: #fff;
+}
